@@ -1,18 +1,21 @@
-# Täytä kommenttien alle tarvittavat
-
 # Perustana virallinen Python-image
+FROM python:3.10
 
-
-# Työhakemisto kontissa
+# Tyohakemisto kontissa
+WORKDIR /app
 
 
 # Kopioidaan riippuvuustiedosto ja asennetaan riippuvuudet
-
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Kopioidaan sovelluskoodi
+COPY app.py .
 
+# Asetetaan ymparistomuuttuja 
+EXPOSE 8080
 
-# Asetetaan ympäristömuuttuja 
+ENV APP_NAME="appi"
 
-
-# Käynnistyskomento
+# Kaynnistyskomento
+CMD ["python", "app.py"]
