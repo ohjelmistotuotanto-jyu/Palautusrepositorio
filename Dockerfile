@@ -14,8 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app.py .
 
 # Asetetaan ympäristömuuttuja 
-ENV name="Oma kontti"
-ENV now="1984-1-1 11:30:02"
+ENV APP_NAME="lvvuolle amazing Docker app"
 
 # Käynnistyskomento
 CMD ["python", "app.py"]
