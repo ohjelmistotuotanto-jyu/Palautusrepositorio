@@ -1,18 +1,12 @@
-# Täytä kommenttien alle tarvittavat
+FROM python:3.10-slim
 
-# Perustana virallinen Python-image
+WORKDIR /app
 
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Työhakemisto kontissa
+COPY . .
 
+EXPOSE 80
 
-# Kopioidaan riippuvuustiedosto ja asennetaan riippuvuudet
-
-
-# Kopioidaan sovelluskoodi
-
-
-# Asetetaan ympäristömuuttuja 
-
-
-# Käynnistyskomento
+CMD ["python", "app.py"]
