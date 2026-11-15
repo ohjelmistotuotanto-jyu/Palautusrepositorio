@@ -1,18 +1,7 @@
-# Täytä kommenttien alle tarvittavat
-
-# Perustana virallinen Python-image
-
-
-# Työhakemisto kontissa
-
-
-# Kopioidaan riippuvuustiedosto ja asennetaan riippuvuudet
-
-
-# Kopioidaan sovelluskoodi
-
-
-# Asetetaan ympäristömuuttuja 
-
-
-# Käynnistyskomento
+FROM python:3.10
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY app.py .
+ENV FLASK_APP=app.py
+CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
