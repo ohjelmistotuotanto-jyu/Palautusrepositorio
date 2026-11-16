@@ -1,18 +1,21 @@
 # Täytä kommenttien alle tarvittavat
 
 # Perustana virallinen Python-image
-
+FROM python:3.10
 
 # Työhakemisto kontissa
-
+WORKDIR /app
 
 # Kopioidaan riippuvuustiedosto ja asennetaan riippuvuudet
-
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 # Kopioidaan sovelluskoodi
-
+COPY app.py .
 
 # Asetetaan ympäristömuuttuja 
-
+ARG APP_NAME="jokuappname"
 
 # Käynnistyskomento
+CMD ["python", "app.py"]
+
