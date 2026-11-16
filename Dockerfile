@@ -3,7 +3,7 @@
 # Perustana virallinen Python-image
 # pkgutil.get_loader is deprecated and removed in 3.14:
 # https://docs.python.org/3/whatsnew/3.14.html#pkgutil
-FROM python:3.13-alpine
+FROM python:3.13-slim
 
 # Työhakemisto kontissa
 WORKDIR /app
